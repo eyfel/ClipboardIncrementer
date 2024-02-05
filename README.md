@@ -22,7 +22,6 @@ Modify the `copy_list` within the script to include your specific identifiers (`
 ## Prerequisites
 
 Ensure the following dependencies are installed in your Python environment:
-- tkinter
 - pyperclip
 - keyboard
 
