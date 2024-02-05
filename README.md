@@ -1,6 +1,6 @@
 # CopyPaster
 
-CopyPaster is an advanced Python tool designed to streamline the copy-paste process for users engaged in tasks that require the frequent copying of predefined values. By displaying an identifier (`copy_id`) and automatically copying its corresponding value (`copy_value`) to the clipboard, it significantly enhances efficiency and accuracy in data entry and documentation processes.
+CopyPaster is an advanced tool designed to streamline the copy-paste process for users engaged in tasks that require the frequent copying of predefined values. By displaying an identifier (`copy_id`) and automatically copying its corresponding value (`copy_value`) to the clipboard, it significantly enhances efficiency and accuracy in data entry and documentation processes.
 
 ## Key Features
 
