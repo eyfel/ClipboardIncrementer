@@ -19,7 +19,7 @@ CopyPaster is an advanced tool designed to streamline the copy-paste process for
 
 Modify the `copy_list` within the script to include your specific identifiers (`copy_id`) and values (`copy_value`), tailoring the tool to meet your unique requirements.
 
-## Prerequisites
+## Dependencies
 
 Ensure the following dependencies are installed in your Python environment:
 - pyperclip
