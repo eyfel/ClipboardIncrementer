@@ -1,23 +1,23 @@
-# CopyPaster
+# ClipboardIncrementer
 
-CopyPaster is an advanced tool designed to streamline the copy-paste process for users engaged in tasks that require the frequent copying of predefined values. By displaying an identifier (`copy_id`) and automatically copying its corresponding value (`copy_value`) to the clipboard, it significantly enhances efficiency and accuracy in data entry and documentation processes.
+ClipboardNumberIncrementer is a Python script designed to enhance efficiency in tasks that involve incrementing numbers copied from predefined patterns. By automatically detecting and incrementing the last number in the clipboard content upon each trigger event, it simplifies data entry processes and reduces manual errors.
 
 ## Key Features
 
-- **Automated Clipboard Copying:** Upon each `Ctrl+V` trigger, automatically copies the next value (`copy_value`) in the list to the clipboard, reducing manual copying errors.
-- **Visual Identifier Display:** Shows the `copy_id` in a prominently displayed GUI window, allowing users to visually confirm the data being copied.
-- **Streamlined Workflow:** Optimizes repetitive data entry tasks by combining visual cues with automatic clipboard management.
-- **User-centric Design:** Features a topmost window with large, bold, red font for easy visibility, ensuring the `copy_id` is always in view.
+- **Automatic Number Incrementing:** Automatically detects the last number in the clipboard content and increments it upon each trigger event, providing seamless copying of incremented numbers.
+- **Visual Confirmation:** Provides a visual indicator of the incremented number in the clipboard, ensuring users can verify the copied data.
+- **Streamlined Workflow:** Optimizes repetitive tasks involving number increments by combining visual cues with automatic clipboard management.
+- **User-friendly Design:** Features a user-centric design with clear instructions and error prevention mechanisms to enhance user experience.
 
 ## Usage Guide
 
-1. Launch the script by executing `python copy_paster.py` in your command line or terminal.
-2. The application window will display the `copy_id`, and the associated `copy_value` will be ready for pasting with `Ctrl+V`.
-3. The script concludes automatically after the last item in the list has been processed, displaying a message that all items have been displayed.
+1. Launch the script by executing `python ClipboardNumberIncrementer.py` in your command line or terminal.
+2. The script will listen for trigger events and automatically increment the last number in the clipboard content when triggered.
+3. Press the designated trigger key to initiate the incrementing process and copy the incremented number to the clipboard.
 
 ## Customization
 
-Modify the `copy_list` within the script to include your specific identifiers (`copy_id`) and values (`copy_value`), tailoring the tool to meet your unique requirements.
+Customize the script according to your specific requirements by adjusting the trigger key or modifying the incrementing logic within the script.
 
 ## Dependencies
 
@@ -28,4 +28,3 @@ Ensure the following dependencies are installed in your Python environment:
 ## Contributing
 
 Contributions are welcome! Feel free to fork this repository, propose changes, or suggest new features by submitting pull requests or opening issues.
-
