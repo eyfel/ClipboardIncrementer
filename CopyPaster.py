@@ -1,55 +1,46 @@
-import tkinter as tk
-from tkinter import ttk
 import pyperclip
+import re
 import keyboard
 import time
 
-copy_list = [
-    {"copy_id": "XxX", "copy_value": "111"},
-    {"copy_id": "YyY", "copy_value": "222"},
-    {"copy_id": "ZzZ", "copy_value": "333"},
-    {"copy_id": "WwW", "copy_value": "444"}
-]
-index = 0
+def increment_number_with_padding(number_str):
+    padding = ''
+    for char in number_str:
+        if char == '0':
+            padding += char
+        else:
+            break
+    
+    number_part = number_str[len(padding):]
+    incremented_number = int(number_part) + 1
+    
+    incremented_number_str = padding + str(incremented_number)
+    
+    return incremented_number_str
 
-def show_next_and_copy():
-    global index
-    if index < len(copy_list):
-        selected_item = copy_list[index]
-        pyperclip.copy(selected_item["copy_value"])
-        label.config(text=selected_item["copy_id"])
-        print(f"{selected_item['copy_id']} is displayed, {selected_item['copy_value']} is copied to clipboard.")
-        index += 1
-    else:
-        label.config(text="All items have been displayed")
-        print("Entire list has been copied. Terminating script.")
-        keyboard.unhook_all()
-        time.sleep(1.5)
-        root.destroy()
+def handle_clipboard_update(event):
+    """Increments the last number in the clipboard content."""
+    if event.event_type == 'down' and event.name.lower() == 'v':
+        time.sleep(0.1)
+        
+        clipboard_content = pyperclip.paste()
+        clipboard_parts = clipboard_content.split('-')
+        last_part = clipboard_parts[-1]
+        last_number = re.search(r'\d+$', last_part).group()
+        incremented_number = increment_number_with_padding(last_number)
 
-def wait_then_show_and_copy():
-    time.sleep(0.2)
-    show_next_and_copy()
+        clipboard_parts[-1] = re.sub(r'\d+$', incremented_number, last_part)
 
-root = tk.Tk()
-root.title("CopyPaster")
+        new_clipboard_content = '-'.join(clipboard_parts)
+        pyperclip.copy(new_clipboard_content)
 
-window_width = 1000
-window_height = 120
-screen_width = root.winfo_screenwidth()
-screen_height = root.winfo_screenheight()
-x_position = (screen_width / 2) - (window_width / 2)
-y_position = (0)
-root.geometry(f"{window_width}x{window_height}+{int(x_position)}+{int(y_position)}")
+keyboard.on_press(handle_clipboard_update)
+print("Listening for 'V' key press; increments the last number after '-' in the clipboard content on each 'V' press.")
+print("Press 'F10' to exit the program.")
 
-root.attributes("-topmost", True)
+keyboard.wait('f10')
 
-label = ttk.Label(root, text="", font=('Arial', 48, 'bold'), foreground='red')
-label.pack(pady=20)
 
-keyboard.add_hotkey('ctrl+v', wait_then_show_and_copy)
 
-wait_then_show_and_copy()
 
-print("Copy list operation started. Please continue with 'Ctrl+V'.")
-root.mainloop()
+    
