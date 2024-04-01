@@ -19,6 +19,10 @@ ClipboardNumberIncrementer is a Python script designed to enhance efficiency in 
 
 Customize the script according to your specific requirements by adjusting the trigger key or modifying the incrementing logic within the script.
 
+## Trigger Event
+
+Pressing the `V` key triggers the script to increment the last number in the clipboard content by 1. As a result, when pasting with `Ctrl+V`, the incremented number will be pasted.
+
 ## Dependencies
 
 Ensure the following dependencies are installed in your Python environment:
